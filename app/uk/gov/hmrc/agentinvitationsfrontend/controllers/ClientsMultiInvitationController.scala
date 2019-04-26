@@ -136,9 +136,9 @@ class ClientsMultiInvitationController @Inject()(
                     clientType,
                     uid,
                     chosenConsent,
-                    backLink = routes.ClientsMultiInvitationController.warmUp(clientType, uid, agencyName),
                     submitUrl = routes.ClientsMultiInvitationController.submitMultiConfirmTerms(clientType, uid),
-                    checkAnswersUrl = routes.ClientsMultiInvitationController.showCheckAnswers(clientType, uid)
+                    checkAnswersUrl = routes.ClientsMultiInvitationController.showCheckAnswers(clientType, uid),
+                    backLink = routes.ClientsMultiInvitationController.warmUp(clientType, uid, agencyName)
                   )
                 )).addingToSession("whichConsent" -> givenServiceKey)
             } else {

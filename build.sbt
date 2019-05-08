@@ -31,7 +31,8 @@ lazy val compileDeps = Seq(
   "uk.gov.hmrc" %% "agent-kenshoo-monitoring" % "3.4.0",
   "uk.gov.hmrc" %% "play-partials" % "6.5.0",
   "de.threedimensions" %% "metrics-play" % "2.5.13",
-  "uk.gov.hmrc" %% "mongo-caching" % "6.1.0-play-25"
+  "uk.gov.hmrc" %% "mongo-caching" % "6.1.0-play-25",
+  "org.typelevel" %% "cats-core" % "1.4.0"
 )
 
 def testDeps(scope: String) = Seq(
@@ -77,11 +78,14 @@ lazy val root = (project in file("."))
     scalafmtOnCompile in IntegrationTest := true
   )
   .settings(addCompilerPlugin(scalafixSemanticdb))
+  .settings(addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3"))
   .settings(
     scalacOptions ++= List(
       "-Yrangepos",
       "-Xplugin-require:semanticdb",
-      "-P:semanticdb:synthetics:on"
+      "-P:semanticdb:synthetics:on",
+      "-Xfatal-warnings",     // turn compiler warnings into errors
+      "-Ypartial-unification" // allow the compiler to unify type constructors of different arities
     )
   )
   .enablePlugins(PlayScala, SbtAutoBuildPlugin, SbtGitVersioning, SbtDistributablesPlugin, SbtArtifactory)

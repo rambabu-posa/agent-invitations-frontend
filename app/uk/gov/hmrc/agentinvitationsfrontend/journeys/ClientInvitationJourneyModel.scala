@@ -23,6 +23,9 @@ import uk.gov.hmrc.play.fsm.JourneyModel
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
+import cats.data.OptionT
+import cats.implicits._
+
 object ClientInvitationJourneyModel extends JourneyModel {
 
   sealed trait State
@@ -76,17 +79,15 @@ object ClientInvitationJourneyModel extends JourneyModel {
       getAgentReferenceRecord: GetAgentReferenceRecord)(getAgencyName: GetAgencyName) =
       Transition {
         case _ =>
-          for {
-            record <- getAgentReferenceRecord(uid)
-            result <- record match {
-                       case Some(r) if r.normalisedAgentNames.contains(normalisedAgentName) =>
-                         val clientType = ClientType.toEnum(clientTypeStr)
-                         getAgencyName(r.arn).flatMap { name =>
-                           goto(WarmUp(clientType, uid, name, normalisedAgentName))
-                         }
-                       case None => goto(NotFoundInvitation)
-                     }
-          } yield result
+          val clientType = ClientType.toEnum(clientTypeStr)
+          val gotoWarmupState = for {
+            record <- OptionT(getAgentReferenceRecord(uid))
+            if record.normalisedAgentNames.contains(normalisedAgentName)
+            name   <- OptionT.liftF(getAgencyName(record.arn))
+            warmup <- OptionT.liftF(goto(WarmUp(clientType, uid, name, normalisedAgentName)))
+          } yield warmup
+
+          gotoWarmupState.getOrElseF(goto(NotFoundInvitation))
       }
 
     private def getConsents(getPendingInvitationIdsAndExpiryDates: GetPendingInvitationIdsAndExpiryDates)(

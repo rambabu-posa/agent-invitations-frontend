@@ -49,21 +49,19 @@ class RedirectUrlActions @Inject()(ssoConnector: SsoConnector) {
   def maybeRedirectUrlOrBadRequest(redirectUrlOpt: Option[RedirectUrl])(block: Option[String] => Future[Result])(
     implicit request: Request[Any],
     hc: HeaderCarrier,
-    ec: ExecutionContext): Future[Result] = {
-
-    val whitelistPolicy = AbsoluteWithHostnameFromWhitelist(ssoConnector.getWhitelistedDomains())
-
+    ec: ExecutionContext): Future[Result] =
     redirectUrlOpt match {
       case Some(redirectUrl) =>
         val unsafeUrl = redirectUrl.get(UnsafePermitAll).url
         if (RedirectUrl.isRelativeUrl(unsafeUrl)) block(Some(unsafeUrl))
-        else
+        else {
+          val whitelistPolicy = AbsoluteWithHostnameFromWhitelist(ssoConnector.getWhitelistedDomains())
           redirectUrl.getEither(whitelistPolicy).flatMap {
             case Right(safeRedirectUrl) => block(Some(safeRedirectUrl.url))
             case Left(errorMessage) =>
               throw new BadRequestException(errorMessage)
           }
+        }
       case None => block(None)
     }
-  }
 }

@@ -11,20 +11,20 @@ POST        /agents/client-type                                         @uk.gov.
 GET         /agents/select-service                                      @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.showSelectService
 
 # multi-select endpoint
-POST        /agents/select-personal-service                             @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitPersonalSelectService
-
 POST        /agents/select-personal-service-single                      @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitPersonalSelectSingle(service: String)
-
-POST        /agents/select-business-service                             @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitBusinessSelectService
 
 POST        /agents/select-trust-service-single                        @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitTrustSelectSingle(service: String)
 
 # multi-select endpoint
-POST /agents/select-trust-services                                     @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitTrustSelectServiceMultiple
+POST        /agents/select-personal-service                             @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitPersonalSelectService
 
-GET         /agents/identify-client                                     @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.showIdentifyClient
+POST        /agents/select-business-service                             @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitBusinessSelectService
+
+POST        /agents/select-trust-services                                     @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitTrustSelectServiceMultiple
 
 #GET endpoints provided for POST endpoints as they are different from the GET
+GET         /agents/identify-client                                     @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.showIdentifyClient
+
 GET         /agents/identify-itsa-client                                @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.identifyClientRedirect
 POST        /agents/identify-itsa-client                                @uk.gov.hmrc.agentinvitationsfrontend.controllers.AgentInvitationJourneyController.submitIdentifyItsaClient
 

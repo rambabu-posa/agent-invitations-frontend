@@ -237,8 +237,8 @@ invitation-sent.continueJourney.button=Yn eich blaen
 invitation-sent.trackRequests=Olrhain eich ceisiadau diweddar am awdurdodiad
 invitation-sent.new-window=(yn agor ffenestr neu dab newydd)
 invitation-sent.startNewAuthRequest=Dechrau cais am awdurdodiad newydd
-invitation-sent.l8=WLSThey can read
-invitation-sent.l9=WLSguidance on how to accept an authorisation request from an agent.
+invitation-sent.l8=###They can read
+invitation-sent.l9=###guidance on how to accept an authorisation request from an agent.
 
 #Check Details
 check-details.heading=Gwirio manylion eich cleient cyn mynd yn eich blaen
@@ -999,11 +999,11 @@ already-responded.p2=Os ydych o’r farn bod hyn yn anghywir, cysylltwch â’r 
 #Cannot find request
 cannot-find-request.header=Ni allwn ddod o hyd i’r cais hwn am awdurdodiad
 cannot-find-request.p1=Ni allwn ddod o hyd i gais gan {0}.
-cannot-find-request.p2=Gwnewch yn siŵr eich bod wedi cofrestru ar gyfer y gwasanaeth treth sydd ei angen arnoch. Gofynnwch i’ch asiant os nad ydych yn siŵr.
+cannot-find-request.p2=Gwnewch yn siŵr eich bod wedi cofrestru ar gyfer y gwasanaeth treth sydd ei angen arnoch.
 cannot-find-request.p3=Mae angen i chi fewngofnodi gan ddefnyddio'r Dynodydd Defnyddiwr (ID) cywir ar gyfer Porth y Llywodraeth. Mae’n bosibl cael mwy nag un, felly gwnewch yn siŵr ei fod yr un peth â'r Dynodydd Defnyddiwr a ddefnyddioch i gofrestru ar gyfer y gwasanaeth treth y mae’r cais am awdurdodiad ar ei gyfer. <a href={0}>Rhowch gynnig ar fewngofnodi gan ddefnyddio Dynodydd Defnyddiwr (ID) gwahanol ar gyfer Porth y Llywodraeth</a> (yr un a ddefnyddiwch i reoli’ch {1}).
 cannot-find-request.business=materion treth busnes
 cannot-find-request.personal=materion treth personol
-cannot-find-request.p4=WLSAsk your agent if you are not sure.
+cannot-find-request.p4=Gofynnwch i’ch asiant os nad ydych yn siŵr.
 
 #Authorisation request error template
 error.authorisation-request-error-template.header=Mae’r cais hwn am awdurdodiad {0}
@@ -1014,12 +1014,12 @@ error.authorisation-request-error-template.p1=Mae’r cais hwn {0}. Ar gyfer man
 error.authorisation-request-error-template.p1.Expired=wedi dod i ben ar {0}
 error.authorisation-request-error-template.p1.Cancelled=wedi’i ganslo gan eich asiant ar {0}
 error.authorisation-request-error-template.p1.AlreadyResponded=wedi cael ei ateb eisoes ar {0}
-error.authorisation-request-error-template.p2=Os yw’ch asiant wedi anfon cais atoch yn ddiweddar, gwnewch yn siŵr eich bod wedi cofrestru ar gyfer y gwasanaeth treth sydd ei angen arnoch.
+error.authorisation-request-error-template.p2=Os yw’ch asiant wedi anfon cais atoch yn ddiweddar,
 error.authorisation-request-error-template.p3=Gallwch hefyd wirio eich bod wedi mewngofnodi â’r Dynodydd Defnyddiwr (ID) cywir ar gyfer Porth y Llywodraeth. Mae’n rhaid iddo fod yr un Dynodydd Defnyddiwr (ID) a ddefnyddiwyd gennych i gofrestru ar gyfer y gwasanaeth treth y mae’r cais am awdurdodiad ar ei gyfer.
 error.authorisation-request-error-template.p4=<a href={0}>Mewngofnodwch â’r Dynodydd Defnyddiwr (ID) ar gyfer Porth y Llywodraeth</a> yr ydych yn ei ddefnyddio ar gyfer rheoli’ch {1}.
 error.authorisation-request-error-template.business=materion treth busnes
 error.authorisation-request-error-template.personal=materion treth personol
-error.authorisation-request-error-template.p5=WLSmake sure you have signed up to the tax service you need.
+error.authorisation-request-error-template.p5=gwnewch yn siŵr eich bod wedi cofrestru ar gyfer y gwasanaeth treth sydd ei angen arnoch.
 
 #session time out
 timeout-dialog.title=Rydych ar fin cael eich allgofnodi
